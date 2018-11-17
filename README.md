@@ -14,7 +14,7 @@ The latest version can be found here: [https://github.com/wiire/pixiewps](https:
 
 # Requirements
 
-`apt-get -y install build-essential libpcap-dev libssl-dev aircrack-ng pixiewps`
+`apt-get -y install build-essential libpcap-dev aircrack-ng pixiewps`
 
 # Setup
 
@@ -36,7 +36,9 @@ make
 
 **Install**
 
-`sudo make install`
+```
+sudo make install
+```
 
 # Usage
 
@@ -102,3 +104,4 @@ Default runlevel is 3.
 # Acknowledgements
 None of this would have happened without the rest of the great team I am proud to credit with helping me:
 `t6_x`, `DataHead`, `Soxrok2212`, `Wiire`
+Huge thanks to `wiire` for helping remove the openssl dependancy!

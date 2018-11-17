@@ -60,9 +60,16 @@
 #include "utils/uuid.c"
 #include "utils/wpa_debug.c"
 #include "utils/wpabuf.c"
+#include "crypto/sha1-internal.c"
 #include "crypto/sha256.c"
+#include "crypto/sha256-internal.c"
 #include "crypto/aes-cbc.c"
-#include "crypto/crypto_openssl.c"
+#include "crypto/aes-internal.c"
+#include "crypto/aes-internal-enc.c"
+#include "crypto/aes-internal-dec.c"
+#include "crypto/crypto_internal-modexp.c"
+#include "crypto/dh_groups.c"
+#include "crypto/dh_group5.c"
 #include "wps/wps.c"
 #include "wps/wps_registrar.c"
 #include "wps/wps_common.c"
@@ -77,7 +84,7 @@
 #include "iface.h"
 #include "bully.h"
 
-#include "wps/pixie.h"
+#include "pixie.h"
 
 sig_atomic_t ctrlc = 0;
 sig_atomic_t signm = 0;
@@ -966,7 +973,7 @@ restart:
 	if ((rf = fopen(G->runf, "a")) != NULL) {
 		if (op_gen_pin == 1)
 		{
-			return;
+			return 0;
 		}
 
 		gettimeofday(&timer, NULL);
